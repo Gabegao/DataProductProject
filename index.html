@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<title>MyShinyApp</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=1274, user-scalable=no">
+	<meta name="description" content="MyShinyApp">
+	<meta name="author" content="Gabegao">
+	<meta name="generator" content="slidify" />
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" media="print"
+	  href="libraries/frameworks/shower/themes/ribbon/styles/print.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css">  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+	<!--
+		To apply styles to the certain slides
+		use slide ID to get needed elements
+		-->
+	<style>
+		#Cover h2 {
+      margin:65px 0 0;
+			color:#FFF;
+			text-align:center;
+			font-size:70px;
+			}
+		#FitToWidth h2,
+		#FitToHeight h2 {
+			color:#FFF;
+			text-align:center;
+			}
+	</style> 
+</head>
+<body class="list">
+  <header class="caption">
+  	<h1>MyShinyApp</h1>
+	</header>
+  <section class="slide class" id="id">
+  <div>
+    <h2>MyShinyApp - Predicting diamond price</h2>
+    <ol>
+<li>The purpose of this app is to predict the price of diamond based on 9 selected features.</li>
+<li>The prediction model is derived based on &quot;diamonds&quot; data, which contains 53940 observations of 10 variables (including actual price).</li>
+<li>User could select the value for each of the 9 variables, and the price of the customized &quot;diamond&quot; will be predicted.</li>
+</ol>
+
+  </div>
+</section>
+<section class="slide class" id="id">
+  <div>
+    <h2>Selected Diamond Features</h2>
+    <ul>
+<li>carat: weight of the diamond </li>
+<li>cut: quality of the cut (Fair, Good, Very Good, Premium, Ideal)</li>
+<li>color: diamond colour, from J(worst) to D(best)</li>
+<li>clarity: a measurement of how clear the diamond is 
+(I1(worst), SI1, SI2, VS1, VS2, VVS1, VVS2, IF(best))</li>
+</ul>
+
+<p>Each variable has either checkbox or slidebar input.</p>
+
+  </div>
+</section>
+<section class="slide class" id="id">
+  <div>
+    <h2>Selected Diamond Features Cont.</h2>
+    <ul>
+<li>x: length in mm</li>
+<li>y: width in mm</li>
+<li>z: depth in mm</li>
+<li>depth: total depth percentage</li>
+<li>table: width of top of diamond relative to widest point</li>
+</ul>
+
+<p>The app will start with default inputs.</p>
+
+  </div>
+</section>
+<section class="slide " id="myslide">
+  <div>
+    <h2>Prediction Model for Diamond Price</h2>
+    <ol>
+<li>This model is derived based on &quot;diamonds&quot; dataset, contained in ggplot2 package.</li>
+<li>The factor variables: cut, color and clarity are all converted to numerical values.</li>
+</ol>
+
+<pre><code class="r">library(ggplot2)
+data(diamonds)
+diamonds$cut &lt;- unclass(diamonds$cut)
+diamonds$color &lt;- unclass(diamonds$color)
+diamonds$clarity &lt;- unclass(diamonds$clarity)
+fit&lt;- lm(price ~ ., data=diamonds)
+</code></pre>
+
+<style>#myslide li{font-size: 80%}</style>
+
+  </div>
+</section>
+<section class="slide class" id="id">
+  <div>
+    <h2>Screenshot of MyshinyApp</h2>
+    <div id="bg">
+  <img src="ScreenShot1.png" alt="">
+</div> 
+
+  </div>
+</section>
+  <div class="progress">
+    <div></div>
+  </div>
+	<script src="libraries/frameworks/shower/shower.js"></script>
+	<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+	<script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+	    tex2jax: {
+	      inlineMath: [['$','$'], ['\\(','\\)']],
+	      processEscapes: true
+	    }
+	  });
+	</script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script> -->
+	<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+		<!-- Copyright © 2010–2012 Vadim Makeev — pepelsbey.net -->
+	<!-- Photos by John Carey — fiftyfootshadows.net -->
+</body>
+</html>
