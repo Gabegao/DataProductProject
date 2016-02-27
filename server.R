@@ -1,3 +1,4 @@
+library(ggplot2)
 data(diamonds)
 diamonds$cut <- unclass(diamonds$cut)
 diamonds$color <- unclass(diamonds$color)
